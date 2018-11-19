@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>    
+    <!--表达式{{}} data-* 开头的数据扩展-->
+    <!--1、数字 2、字符串 3、不支持条件判断、循环、异常-->
+</head>
+<body>
+    <h3>2、数据扩展</h3>
+    <div data-ng-app="" data-ng-init="firstName='John';lastName='Frank'">
+        <p>我的第一个表达式{{5+5}}</p>
+        <p>姓名为 <span data-ng-bind="firstName+' '+lastName"></span></p>
+    </div>
+</body>
+</html>

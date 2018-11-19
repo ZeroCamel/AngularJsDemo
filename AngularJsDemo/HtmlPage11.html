@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AngularJs自定义过滤器</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myContronl", function ($scope) {
+            $scope.msg = "Hello";
+        });
+        app.filter("reverse", function () {
+            //可以注入依赖
+            return function (text) {
+                return text.split("").reverse().join("");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myContronl">
+        <p>{{msg|reverse}}</p>
+    </div>
+</body>
+</html>

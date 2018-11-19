@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>scope/rootscope概述 rootScope是各个Contronl中的Scope的桥梁</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCon">
+        <input type="text" ng-model="name" />
+        {{greeting}}
+        <input type="button" ng-click="sayHello()" name="click"/>
+
+        <ul>
+            <li ng-repeat="x in names">{{x}} {{lastname}}</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCon", function ($scope,$rootScope) {
+            $scope.name = "hh";
+            $scope.sayHello = function () {
+                $scope.greeting = 'Hello' + $scope.name + '!';
+            };
+            $scope.names = ["aee", "bee", "cee"];
+            $rootScope.lastname = "d";
+        })
+    </script>
+</body>
+</html>

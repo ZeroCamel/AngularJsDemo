@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <!--应用和模块-->
+    <!--ng_app:应用域 ng_init-初始化数据 ng_bind-绑定数据-->
+</head>
+<body>
+    <h3>1、AngularJs 数据绑定</h3>
+    <div ng-app="" ng-init="firstname='test'">
+
+        <span>ng-app 指令定义一个 AngularJS 应用程序。<br /></span>
+        <span>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。<br /></span>
+        <span>ng-bind 指令把应用程序数据绑定到 HTML 视图<br /></span>
+        
+        <h3>Ng_Model 模型</h3>
+        <p>名字 : <input type="text" ng-model="name"></p>
+        <h4>Hello {{name}}</h4>
+        <h4>初始化并绑定<span ng-bind="firstname"></span></h4>
+    </div>
+
+</body>
+</html>

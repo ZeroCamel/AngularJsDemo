@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AngularJs过滤器</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <!--过滤器可以使用一个管道操作符|添加到表达式和指令中
+        将第一个管道的输出作为第二个管道的输入
+        uppercase
+        lowercase
+        currency
+        filter-->
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("personContronl", function ($scope) {
+            $scope.lastname = "aaa";
+            $scope.firstname = "AAAA";
+        })
+    </script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="personContronl" ng-init="names=[{name:'d',country:'a'},{name:'b',country:'b'},{name:'c',country:'c'}]">
+        <p>{{lastname|uppercase}}</p>
+        <p>{{firstname|lowercase}}</p>
+        <input type="number" ng-model="quantity" />
+        <input type="number" ng-model="price" />
+        <p>{{quantity*price|currency}}</p>
+        <ul>
+            <li ng-repeat="x in names|orderBy:'name'">{{x.name+','+x.country}}</li>
+        </ul>
+        <input type="text" ng-model="text" />
+        <ul>
+            <li ng-repeat="x in names|filter:text|orderBy:'name'">{{(x.name+','+x.country|uppercase)}}</li>
+        </ul>
+        <ul>
+            <li ng-repeat="x in names|filter:text|orderBy:'name'">{{(x.name|uppercase)+','+x.country}}</li>
+        </ul>
+    </div>
+</body>
+</html>

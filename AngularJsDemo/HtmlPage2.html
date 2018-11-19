@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        //通过访问应用下的控制器的数据模型层
+        //$scope-作用域
+        var app = angular.module('MyApp', []);
+        app.controller('MyContronl', function ($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Frank";
+        });
+    </script>
+</head>
+<body>
+    <div ng-app="MyApp" ng-controller="MyContronl">
+        名：<input type="text" ng-model="firstName" /><br />
+        姓：<input type="text" ng-model="lastName" /><br />
+        姓名：{{firstName+lastName}}
+    </div>
+</body>
+</html>

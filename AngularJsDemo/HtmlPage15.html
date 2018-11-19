@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Angular-Js表格</title>
+    <!--ng-repeat 指令可以完美的显示表格-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $http) {
+            $http.get("Customers_JSON.php").success(function (response) { $scope.names = response.records; });
+        })
+    </script>
+    <!--显示序号
+    设置CSS
+    使用过滤器
+    使用$even $odd    -->
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <tr ng-repeat="x in names">
+                <td>{{x.name}}</td>
+                <td>{{x.Country}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

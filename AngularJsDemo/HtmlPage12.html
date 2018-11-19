@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AngularJs服务</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <!--可以创建自己的服务，也可以使用内建服务（30多个）
+        在AngularJs中服务是一个函数或者对象-->
+    <script>
+        //1、$location 获取当前位置信息
+        //var app = angular.module("myApp", []);
+        //app.controller("myContronl",function($scope,$location)
+        //{
+        //    $scope.myUrl = $location.absUrl();
+        //})
+
+        //2、$http 服务器向服务器发送请求并相应服务器返回的数据
+        //var app = angular.module("myApp", []);
+        //app.controller("myContronl",function($scope,$http)
+        //{
+        //    $http.get("Index.html").then(function(response)
+        //    {
+        //        $scope.myUrl = response.data;
+        //    })
+        //})
+
+        //3、$timeout
+        //var app = angular.module("myApp", []);
+        //app.controller("myContronl", function ($scope, $timeout) {
+        //    $scope.myUrl = "Hello,World!";
+        //    $timeout(function () {
+        //        $scope.myUrl = "How are you today?";
+        //    }, 2000)
+        //})
+
+        //4、$interval 时间间隔特效
+        //var app = angular.module("myApp", []);
+        //app.controller("myContronl",function($scope,$interval)
+        //{
+        //    $scope.myUrl = new Date().toLocaleTimeString();
+        //    $interval(function () {
+        //        $scope.myUrl = new Date().toLocaleTimeString();
+        //    }, 1000);
+        //});
+
+        //5、不使用Interval的时间间隔
+        //$apply
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.thetime = new Date().toLocaleTimeString();
+            $scope.setTime = function () {
+                $scope.$apply(function () {
+                    $scope.thetime = new Date().toLocaleTimeString();
+                });
+            };
+            setInterval($scope.setTime, 1000);
+        });
+
+        //5、创建自定义服务并使用过滤器
+        //var app = angular.module('myApp', []);
+
+        //app.service('hexafy', function () {
+        //    this.myFunc = function (x) {
+        //        return x.toString(16);
+        //    }
+        //});
+        //app.filter('myFormat', ['hexafy', function (hexafy) {
+        //    return function (x) {
+        //        return hexafy.myFunc(x);
+        //    }
+        //}]);
+        //app.controller('myCtrl', function ($scope, hexafy) {
+        //    $scope.hex = hexafy.myFunc(255);
+        //    //$scope.counts = [255, 251, 200];
+        //});
+
+    </script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl" ng-init="counts=[25, 21, 20]">
+        <span>{{theTime}}</span>
+        <span>{{hex}}</span>
+        <ul>
+            <li ng-repeat="x in counts">{{x|myFormat}}</li>
+        </ul>
+    </div>
+</body>
+</html>
